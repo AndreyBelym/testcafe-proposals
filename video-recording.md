@@ -5,7 +5,7 @@
 * Limited to Firefox and Chrome, but supports both normal and headless mode. Taking plain images of these browsers in both modes already supported in the dedicated `chrome` and `firefox` browser providers by utilizing remote debugging protocols.
 * A stream of captured images transformed encoded into video format by [FFMPEG](https://www.ffmpeg.org/).
 * Should supports the following capturing modes:
-  - Whole test run - because sometimes it's easier and convenient to upload one big file as an artifact to cloud storage provider (e.g. Amazon S3). Also, ffmpeg can output a stream to a remote server using RTMP protocol (used by streaming sites like YouTube, Twitch, etc.)
+  - All tests at once - because sometimes it's easier and convenient to upload one big file as an artifact to cloud storage provider (e.g. Amazon S3). Also, ffmpeg can output a stream to a remote server using RTMP protocol (used by streaming sites like YouTube, Twitch, etc.)
   - Test-by-test - you don't have rewind video for a some test, you can just open a file with the record of the test.
   - Only failed tests - minimal storage usage.
 * [Strongly suggested] Support of patterns in recordings' paths like in https://github.com/DevExpress/testcafe/pull/2086
@@ -47,7 +47,7 @@ Have format of `key=value[,key2=value2][...]`. Key names should be named using c
 
 | key | description |
 | --- | ----------- |
-| `capturingMode` | Video capturing mode. Possible values: `all-tests`,`step-by-step`, `failed-only` |
+| `capturingMode` | Video capturing mode. Possible values: `all-tests-at-once`,`step-by-step`, `failed-only` |
 | `encodingOptions` | String consisting of valid FFMPEG options | 
 
 ## API enhancements proposal
