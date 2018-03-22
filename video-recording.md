@@ -35,8 +35,8 @@ Enables video recording of running tests.
 
 #### Arguments:
 
-* path - path to the video recording file or folder. Should be treated as a file, if recording of a whole test run is enabled. Otherwise:
-  - if there are no patterns in path, specifies directory to save recordings of each test of each useragent. Filename of a video recording of a 
+* path - path to the video recording file or folder. 
+  - if there are no patterns in path, specifies directory to save recordings for each useragent of a whole tests of of each test. Filename of a video recording of a 
   - if there are patterns in path, `${TEST}` or `${TEST_NAME}` patterns are required.
 
 ### --video-recording-options <options>
