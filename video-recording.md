@@ -47,7 +47,7 @@ Have format of `key=value[,key2=value2][...]`. Key names should be named using c
 
 | key | description |
 | --- | ----------- |
-| `capturingMode` | Video capturing mode. Possible values: `all-tests-at-once`,`step-by-step`, `failed-only` |
+| `mode` | Video capturing mode. Possible values: `all-tests-at-once`,`step-by-step`, `failed-only` |
 | `encodingOptions` | String consisting of valid FFMPEG options | 
 
 ## API enhancements proposal
