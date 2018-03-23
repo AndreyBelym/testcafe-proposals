@@ -48,8 +48,23 @@ Have format of `key=value[,key2=value2][...]`. Key names should be named using c
 | key | description |
 | --- | ----------- |
 | `mode` | Video capturing mode. Possible values: `all-tests-at-once`,`step-by-step`, `failed-only` |
-| `encodingOptions` | String consisting of valid FFMPEG options | 
+| `encodingOptions` | String consisting of valid [FFMPEG options](https://ffmpeg.org/ffmpeg.html#toc-Generic-options) | 
 
+#### Usage example
+```
+testcafe chrome test.js -V videos
+```
+Records a video of all tests at `${CURRENT_DIR}/videos/CHROME_X.X.X/video.mp4`.
+
+```
+testcafe chrome test.js -V videos --video-options mode=test-by-test
+```
+Records a number of videos for each test at `${CURRENT_DIR}/videos/CHROME_X.X.X/video-${TEST_NUMBER}.mp4`.
+
+```
+testcafe chrome test.js -V videos --video-options mode=failed-only
+```
+Records a number of videos for each failed test at `${CURRENT_DIR}/videos/CHROME_X.X.X/video-${TEST_NUMBER}.mp4`.
 ## API enhancements proposal
 
 ### Runner#videoRecording(path, options)
@@ -58,5 +73,25 @@ Enables video recording of running tests by using TestCafe JS API.
 
 #### Arguments
 * path - path to the video recording file or folder. Should be handled the same way described in the **CLI enhancements proposal** section.
-* options - a plain JS object with `key:value` pairs, describing the options mentioned in the **CLI enhancements proposal** section. 
+* options - a plain JS object with `key:value` pairs, describing the options mentioned in the **CLI enhancements proposal** section.
+
+#### Usage example
+```
+runner
+  .videoRecording('videos')
+```
+Records a video of all tests at `${CURRENT_DIR}/videos/CHROME_X.X.X/video.mp4`.
+
+```
+runner
+  .videoRecording('videos', { mode: 'test-by-test' })
+```
+Records a number of videos for each test at `${CURRENT_DIR}/videos/CHROME_X.X.X/video-${TEST_NUMBER}.mp4`.
+
+```
+runner
+  .videoRecording('videos', { mode: 'failed-only' })
+```
+Records a number of videos for each failed test at `${CURRENT_DIR}/videos/CHROME_X.X.X/video-${TEST_NUMBER}.mp4`.
+
 ## Implementation details 
